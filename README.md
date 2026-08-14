@@ -9,6 +9,17 @@
 Cross-platform **Quality-of-Service controls for native threads and
 processes**.
 
+## Platform support
+
+| Target | Behavior |
+| --- | --- |
+| macOS | Native per-thread `QoS` and process disk-I/O controls |
+| Linux and Android | Native per-thread nice-level controls; process I/O is delegated to the service manager |
+| Windows and other targets | Compiles with successful no-op scheduling controls |
+
+The crate is therefore useful on every target as a stable API, but it only
+changes operating-system scheduling natively on macOS, Linux, and Android.
+
 This crate provides a small platform abstraction for workloads that share a
 machine but have different scheduling needs:
 
