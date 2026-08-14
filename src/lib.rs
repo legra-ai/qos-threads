@@ -91,7 +91,15 @@ impl Drop for Restore {
 ///
 /// Returns [`QosError`] if the OS rejects the change.
 pub fn boost_process_io() -> Result<(), QosError> {
-    imp::boost_process_io()
+    #[cfg(any(target_vendor = "apple", target_os = "linux", target_os = "android"))]
+    {
+        imp::boost_process_io()
+    }
+    #[cfg(not(any(target_vendor = "apple", target_os = "linux", target_os = "android")))]
+    {
+        imp::boost_process_io();
+        Ok(())
+    }
 }
 
 #[cfg(target_vendor = "apple")]
@@ -241,9 +249,7 @@ mod imp {
 
     pub(super) fn restore(_saved: &Saved) {}
 
-    pub(super) fn boost_process_io() -> Result<(), QosError> {
-        Ok(())
-    }
+    pub(super) fn boost_process_io() {}
 }
 
 #[cfg(test)]
