@@ -1,5 +1,11 @@
 # qos-threads
 
+[![Crates.io](https://img.shields.io/crates/v/qos-threads.svg)](https://crates.io/crates/qos-threads)
+[![Documentation](https://docs.rs/qos-threads/badge.svg)](https://docs.rs/qos-threads)
+[![CI/CD](https://github.com/legra-ai/qos-threads/actions/workflows/ci.yml/badge.svg)](https://github.com/legra-ai/qos-threads/actions/workflows/ci.yml)
+[![License: MIT OR Apache-2.0](https://img.shields.io/crates/l/qos-threads.svg)](https://github.com/legra-ai/qos-threads#license)
+[![Downloads](https://img.shields.io/crates/d/qos-threads.svg)](https://crates.io/crates/qos-threads)
+
 Cross-platform **Quality-of-Service controls for native threads and
 processes**.
 
