@@ -91,11 +91,11 @@ impl Drop for Restore {
 ///
 /// Returns [`QosError`] if the OS rejects the change.
 pub fn boost_process_io() -> Result<(), QosError> {
-    #[cfg(any(target_vendor = "apple", target_os = "linux", target_os = "android"))]
+    #[cfg(target_vendor = "apple")]
     {
         imp::boost_process_io()
     }
-    #[cfg(not(any(target_vendor = "apple", target_os = "linux", target_os = "android")))]
+    #[cfg(not(target_vendor = "apple"))]
     {
         imp::boost_process_io();
         Ok(())
@@ -225,11 +225,10 @@ mod imp {
         }
     }
 
-    pub(super) fn boost_process_io() -> Result<(), QosError> {
+    pub(super) fn boost_process_io() {
         // Whole-process disk-I/O priority is normally set declaratively by a
         // Linux service manager, which covers the service cgroup regardless
         // of when threads spawn. Nothing to do here.
-        Ok(())
     }
 }
 
