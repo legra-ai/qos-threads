@@ -1,0 +1,26 @@
+[package]
+name = "qos-threads"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.85"
+license = "MIT OR Apache-2.0"
+description = "Cross-platform Quality-of-Service controls for native threads and processes"
+repository = "https://github.com/legra-ai/qos-threads"
+homepage = "https://github.com/legra-ai/qos-threads"
+documentation = "https://docs.rs/qos-threads"
+keywords = ["qos", "threads", "scheduling", "priority", "macos"]
+categories = ["os", "os::unix-apis"]
+readme = "README.md"
+
+[lib]
+doctest = true
+
+[target.'cfg(unix)'.dependencies]
+libc = "0.2"
+
+[lints.rust]
+missing_docs = "deny"
+
+[lints.clippy]
+all = "warn"
+pedantic = "warn"
