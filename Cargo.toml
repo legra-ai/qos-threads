@@ -7,7 +7,6 @@ rust-version = "1.85"
 license = "MIT OR Apache-2.0"
 description = "Cross-platform QoS controls; native scheduling on macOS, Linux, and Android"
 repository = "https://github.com/legra-ai/qos-threads"
-homepage = "https://github.com/legra-ai/qos-threads"
 documentation = "https://docs.rs/qos-threads"
 keywords = ["qos", "threads", "scheduling", "priority", "macos"]
 categories = ["os", "os::unix-apis"]
@@ -20,7 +19,7 @@ doctest = true
 libc = "0.2"
 
 [build-dependencies]
-rhusky = "0.0.6"
+rhusky = "2.0.13"
 
 [lints.rust]
 missing_docs = "deny"
